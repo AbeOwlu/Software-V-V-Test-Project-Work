@@ -1,3 +1,5 @@
+import traceback
+
 from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
 from InitAppiumDriver import desired_Cap
@@ -10,6 +12,7 @@ desired_cap = desired_Cap()
 driver = webdriver.Remote("http://localhost:4723/wd/hub", desired_cap)
 driver.implicitly_wait(30)
 user_action = TouchAction(driver)
+
 
 developer_list = []
 found_list = []
@@ -86,4 +89,4 @@ for elements_counting in found_list:
             TouchAction(driver).press(x=964, y=606).move_to(x=615, y=611).release().perform()
     else:
         driver.refresh()
-'''
+
